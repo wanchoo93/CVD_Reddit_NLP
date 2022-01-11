@@ -111,7 +111,7 @@ call delete_covid_keys();
 ```
 
 ### 7. Change in Language Markers Pre- and During COVID-19 using DLATK and MySQL:
-* Language correlations to highlight fluctuation pre vs post covid. Change the broader_topic name (Diet, Physical_Activity, Drugs, Smoking). 
+* Language correlations to highlight fluctuation pre vs during covid. Change the broader_topic name (Diet, Physical_Activity, Drugs, Smoking). 
 ```
 python dlatkInterface.py -d covid_cv_reddit -t master_sub -g user_sub \
 -f 'feat$1to3gram$master_sub$user_sub$0_01$pmi3_0' \
@@ -124,7 +124,7 @@ python dlatkInterface.py -d covid_cv_reddit -t master_sub -g user_sub \
 --where "broader_topic like '%Drugs%'"
 ```
 
-* Create tag-clouds and get correlations that shall highlight topics for each subreddit undergone fluctuation pre vs post covid. Change the broader_topic name (Diet, Physical_Activity, Drugs, Smoking)
+* Create tag-clouds and get correlations that shall highlight topics for each subreddit undergone fluctuation pre vs during covid. Change the broader_topic name (Diet, Physical_Activity, Drugs, Smoking)
 ```
 python dlatkInterface.py -d covid_cv_reddit -t master_sub -g user_sub \
 -f ‘feat$cat_covid_cv_200_cp_w$master_sub$user_sub$1to3’ \
