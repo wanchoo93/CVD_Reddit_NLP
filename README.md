@@ -19,7 +19,7 @@ In the **psaw_submissions.py** enter subreddit names you wish to scrape in Line 
 You could change **params_submission** variable in Line #24 to alter the mentioned parameters. Visit [Pushshift Reddit API Documentation](https://github.com/pushshift/api) for more details.
 
 ### 2. Data preparation:
-It is recommended to append all individual subreddit output files in a single master file separately for posts and comments and upload it to your respective databases. In this documentation I have used database name **covid_cv_reddit** and table name **master_sub** that contains all the posts from 22 subreddits. MySQL server was used for our project.
+It is recommended to append all individual subreddit output files in a single master file separately for posts and comments and upload it to your respective database. In this documentation I have used database name **covid_cv_reddit** and table name **master_sub** that contains all the posts from 22 subreddits. MySQL server was used for our project.
 Run **MySQL_data_prep.sql**
 
 ### 3. DLATK installation and requirements:
