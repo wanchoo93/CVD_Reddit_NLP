@@ -1,5 +1,12 @@
 # CVD_Reddit_NLP
 
+```
+Author: Karan Wanchoo
+Project: CVD_Reddit_NLP
+Date: January 10, 2022
+Affiliation: World Well-Being Project
+```
+
 This repository contains code for the paper:
 
 **REDDIT LANGUAGE INDICATES CHANGES IN CARDIOVASCULAR HEALTH BEHAVIORS AROUND DIET, PHYSICAL ACTIVITY, SUBSTANCE USE, AND SMOKING DURING COVID-19**.
