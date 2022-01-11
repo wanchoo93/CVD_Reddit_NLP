@@ -113,9 +113,9 @@ def get_plots(cols,lda_table_transposed_2):
             
 def main():
 	lda_table_transposed_2 = get_data()
-    cols = get_correlations()
-    get_plots(cols,lda_table_transposed_2)
+	cols = get_correlations()
+	get_plots(cols,lda_table_transposed_2)
     
     
 if __name__ == "__main__":
-    main()
+	main()
