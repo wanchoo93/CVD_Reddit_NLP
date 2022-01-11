@@ -82,7 +82,7 @@ python dlatkInterface.py -d covid_cv_reddit -t master_sub -c message_id -f 'feat
 
 * Check the output tables *covid_cv_200_cp* and *covid_cv_200_freq_t50ll*
 
-* Now create 1to3grams at *user_subreddit_pandemicflag* level (i.e Alex_Marijuana_pre or Alex_Marijuana_post implying the post was made by user Alex in Marijuana subreddit pre-pandemic or during pandemic. This column has been named as **user_sub** in the table **master_sub**
+* Now create 1to3grams at *user_subreddit_pandemicflag* level (i.e Alex_Marijuana_pre or Alex_Marijuana_post implying the post was made by user Alex in Marijuana subreddit pre-pandemic or during pandemic. This column has been named as **user_sub** in the table **master_sub**. Pandemic indicator flag in the **master_sub** dataset has the name **is_post** that indicates whether the post was made during pandemic (is_post = 1) or pre-pandemic (is_post=0)
 ```
 python dlatkInterface.py -d covid_cv_reddit -t master_sub -c user_sub --add_ngrams -n 1 2 3 --combine_feat_tables 1to3gram --feat_occ_filter --feat_colloc_filter
 ```
@@ -111,7 +111,7 @@ call delete_covid_keys();
 ```
 
 ### 7. Change in Language Markers Pre- and During COVID-19 using DLATK and MySQL:
-* Language correlations to highlight fluctuation pre vs post covid. Change the broader_topic name (Diet, Physical_Activity, Drugs, Smoking). Pandemic indicator flag in the **master_sub** dataset has the name **is_post** that indicates whether the post was made during pandemic (is_post = 1) or pre-pandemic (is_post=0)
+* Language correlations to highlight fluctuation pre vs post covid. Change the broader_topic name (Diet, Physical_Activity, Drugs, Smoking). 
 ```
 python dlatkInterface.py -d covid_cv_reddit -t master_sub -g user_sub \
 -f 'feat$1to3gram$master_sub$user_sub$0_01$pmi3_0' \
@@ -143,7 +143,7 @@ python dlatkInterface.py -d covid_cv_reddit -t master_sub -f 'feat$cat_covid_cv_
 ```
 
 ### 8. Identify significantly positively correlated topics associated with the four broader groups:
-* **user_s** in the column name in **master_sub** that has been created by concatenating user and subreddit values. Posts are aggregated at user_subreddit levels and correlations are found with broader group indicator flags such as **is_drugs**, **is_smoking**, etc similar to **is_post**.
+* **user_s** in the column name in **master_sub** that has been created by concatenating user and subreddit values. Posts are aggregated at user_subreddit levels and correlations are found with broader group indicator flags such as **is_drugs**, **is_smoking**, etc., similar to **is_post**.
 ```
 CREATE TABLE post_outcome_2 SELECT DISTINCT broader_topic, user_s, is_drugs, is_pa, is_diet, is_smoking from master_sub;
 CREATE INDEX user_s ON post_outcome_2(user_s);
@@ -153,7 +153,7 @@ CREATE INDEX user_s ON post_outcome_2(user_s);
 python dlatkInterface.py -d covid_cv_reddit -t master_sub -g user_s \
 -f ‘feat$cat_covid_200_cp_w$master_sub$user_s$1to3’ \
 --outcome_table post_outcome_2  --group_freq_thresh 400 \
---outcomes is_drugs is_pa is_diet is_smoking --output_name Group_correlations \
+--outcomes is_drugs is_pa is_diet is_smoking --output_name Phase2_200_reattempt \
 --topic_tagcloud --make_topic_wordcloud --topic_lexicon covid_cv_200_freq_t50ll \
 --tagcloud_colorscheme bluered \
 --lexicondb=covid_cv_reddit \
@@ -166,7 +166,7 @@ python dlatkInterface.py -d covid_cv_reddit -t master_sub -g user_s \
 python dlatkInterface.py -d covid_cv_reddit -t master_sub -c message_id --add_lex_table -l covid_cv_200_cp --weighted_lexicon --lexicondb=covid_cv_reddit --word_table ‘feat$colloc$master_sub$message_id$5en05’
 ```
 
-* Run **prevalent_topics.py** for the generating new user count plots and message count plots over time across four broader groups.
+* Run **prevalent_topics.py** for the generating temporal plots of topic distributions for significantly positively correlated topics within each broader group.
 ```
 python prevalent_topics.py
 ```
