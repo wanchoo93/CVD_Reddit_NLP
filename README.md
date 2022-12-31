@@ -9,7 +9,7 @@ Affiliation: World Well-Being Project
 
 This repository contains code for the paper:
 
-**REDDIT LANGUAGE INDICATES CHANGES IN CARDIOVASCULAR HEALTH BEHAVIORS AROUND DIET, PHYSICAL ACTIVITY, SUBSTANCE USE, AND SMOKING DURING COVID-19**.
+**Reddit language indicates changes associated with diet, physical activity, substance use, and smoking during COVID-19**.
 
 ## Steps for running the code for regeneration:
 
